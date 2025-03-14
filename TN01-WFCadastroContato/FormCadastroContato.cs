@@ -17,22 +17,30 @@ namespace TN01_WFCadastroContato
         {
             InitializeComponent();
         }
-        private void LimparFormulario()
+        public void Sucesso(string mensagem = "")
+        {
+            MessageBox.Show(mensagem, "Sucesso",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public void LimparFormulario()
         {
             txtNome.Clear();
             txtSobrenome.Clear();
-            mkdTelefone.Clear();
+            mtdTelefone.Clear();
             rdbPessoal.Checked = false;
             rdbComercial.Checked = false;
             rdbRecado.Checked = false;
             txtEmail.Clear();
         }
-        private void btnSalvar_Click_1(object sender, EventArgs e)
+
+        private void btnSalvar_Click(object sender, EventArgs e)
         {
             string nome = txtNome.Text;
-            string sobrenome = txtSobrenome.Text;
-            string telefone = mkdTelefone.Text;
             string email = txtEmail.Text;
+            string sobrenome = txtSobrenome.Text;
+            string telefone = mtdTelefone.Text;
+            ETipoTelefone tipotelefone;
 
             if (nome.Length == 0)
             {
@@ -53,16 +61,41 @@ namespace TN01_WFCadastroContato
 
             if (rdbPessoal.Checked)
             {
-                telefone = "P";
+                tipotelefone = ETipoTelefone.Pessoal;
             }
             else if (rdbComercial.Checked)
             {
-                telefone = "C";
+                tipotelefone = ETipoTelefone.Comercial;
             }
-            else if (rdbComercial.Checked)
+            else if (rdbRecado.Checked)
             {
-                telefone = "R";
+                tipotelefone = ETipoTelefone.Recado;
             }
+            else
+            {
+                MessageBox.Show("O tipo de telefone não foi informado", "Erro");
+                return;
+            }
+
+            Contato c1 = new Contato();
+            c1.Nome = nome;
+            c1.Email = email;
+            c1.Sobrenome = sobrenome;
+            c1.Codigo = 0;
+            c1.TipoTelefone = tipotelefone;
+            c1.DDD = mtdTelefone.Text.Substring(0, 2);
+            c1.Telefone = mtdTelefone.Text.Substring(5);
+
+            Contato.ListaContatos.Add(c1);
+
+            Sucesso("Cadastrado com Sucesso!");
+
+            LimparFormulario();
+        }
+
+        private void btnVoltar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

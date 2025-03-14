@@ -41,7 +41,7 @@
             btnVoltar = new Button();
             btnSalvar = new Button();
             textBox1 = new TextBox();
-            mkdTelefone = new MaskedTextBox();
+            mtdTelefone = new MaskedTextBox();
             textBox2 = new TextBox();
             txtEmail = new TextBox();
             gbxTipoTelefone.SuspendLayout();
@@ -146,14 +146,15 @@
             // 
             btnVoltar.Image = Properties.Resources.volte;
             btnVoltar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVoltar.Location = new Point(334, 279);
+            btnVoltar.Location = new Point(348, 279);
             btnVoltar.Name = "btnVoltar";
-            btnVoltar.Size = new Size(84, 50);
+            btnVoltar.Size = new Size(80, 50);
             btnVoltar.TabIndex = 9;
             btnVoltar.Text = "Voltar";
             btnVoltar.TextAlign = ContentAlignment.MiddleLeft;
             btnVoltar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnVoltar.UseVisualStyleBackColor = true;
+            btnVoltar.Click += btnVoltar_Click_1;
             // 
             // btnSalvar
             // 
@@ -166,7 +167,7 @@
             btnSalvar.Text = "Salvar";
             btnSalvar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSalvar.UseVisualStyleBackColor = true;
-            btnSalvar.Click += btnSalvar_Click_1;
+            btnSalvar.Click += btnSalvar_Click;
             // 
             // textBox1
             // 
@@ -178,14 +179,14 @@
             textBox1.Size = new Size(500, 2);
             textBox1.TabIndex = 10;
             // 
-            // mkdTelefone
+            // mtdTelefone
             // 
-            mkdTelefone.Location = new Point(19, 141);
-            mkdTelefone.Mask = "(99) 000-000000";
-            mkdTelefone.Name = "mkdTelefone";
-            mkdTelefone.Size = new Size(100, 23);
-            mkdTelefone.TabIndex = 3;
-            mkdTelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            mtdTelefone.Location = new Point(19, 141);
+            mtdTelefone.Mask = "(99) 000-000000";
+            mtdTelefone.Name = "mtdTelefone";
+            mtdTelefone.Size = new Size(100, 23);
+            mtdTelefone.TabIndex = 3;
+            mtdTelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             // 
             // textBox2
             // 
@@ -211,7 +212,7 @@
             ClientSize = new Size(578, 343);
             Controls.Add(txtEmail);
             Controls.Add(textBox2);
-            Controls.Add(mkdTelefone);
+            Controls.Add(mtdTelefone);
             Controls.Add(textBox1);
             Controls.Add(btnSalvar);
             Controls.Add(btnVoltar);
@@ -246,7 +247,7 @@
         private Button btnVoltar;
         private Button btnSalvar;
         private TextBox textBox1;
-        private MaskedTextBox mkdTelefone;
+        private MaskedTextBox mtdTelefone;
         private TextBox textBox2;
         private TextBox txtEmail;
     }

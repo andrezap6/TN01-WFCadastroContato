@@ -33,9 +33,10 @@
             mnsCadastrar = new ToolStripMenuItem();
             mnsSobre = new ToolStripMenuItem();
             mnsSair = new ToolStripMenuItem();
-            pbImagem = new PictureBox();
+            picMenu = new PictureBox();
+            mnsListagem = new ToolStripMenuItem();
             menuStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbImagem).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picMenu).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -48,7 +49,7 @@
             // 
             // menuStrip2
             // 
-            menuStrip2.Items.AddRange(new ToolStripItem[] { mnsCadastrar, mnsSobre, mnsSair });
+            menuStrip2.Items.AddRange(new ToolStripItem[] { mnsCadastrar, mnsSobre, mnsListagem, mnsSair });
             menuStrip2.Location = new Point(0, 0);
             menuStrip2.Name = "menuStrip2";
             menuStrip2.Size = new Size(308, 24);
@@ -75,29 +76,42 @@
             mnsSair.Text = "Sair";
             mnsSair.Click += mnsSair_Click_1;
             // 
-            // pbImagem
+            // picMenu
             // 
-            pbImagem.Image = Properties.Resources.images;
-            pbImagem.Location = new Point(12, 27);
-            pbImagem.Name = "pbImagem";
-            pbImagem.Size = new Size(301, 172);
-            pbImagem.TabIndex = 3;
-            pbImagem.TabStop = false;
+            picMenu.Dock = DockStyle.Right;
+            picMenu.Image = Properties.Resources.images;
+            picMenu.Location = new Point(7, 48);
+            picMenu.Name = "picMenu";
+            picMenu.Size = new Size(301, 145);
+            picMenu.SizeMode = PictureBoxSizeMode.StretchImage;
+            picMenu.TabIndex = 3;
+            picMenu.TabStop = false;
+            // 
+            // mnsListagem
+            // 
+            mnsListagem.Name = "mnsListagem";
+            mnsListagem.Size = new Size(67, 20);
+            mnsListagem.Text = "Listagem";
+            mnsListagem.Click += mnsListagem_Click;
             // 
             // lblMenuPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(308, 193);
-            Controls.Add(pbImagem);
+            Controls.Add(picMenu);
             Controls.Add(menuStrip1);
             Controls.Add(menuStrip2);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MainMenuStrip = menuStrip1;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "lblMenuPrincipal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Menu Principal";
             menuStrip2.ResumeLayout(false);
             menuStrip2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pbImagem).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picMenu).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -108,6 +122,7 @@
         private ToolStripMenuItem mnsCadastrar;
         private ToolStripMenuItem mnsSair;
         private ToolStripMenuItem mnsSobre;
-        private PictureBox pbImagem;
+        private PictureBox picMenu;
+        private ToolStripMenuItem mnsListagem;
     }
 }
